@@ -7,25 +7,6 @@ There are numerous versions of Stable Diffusion available on the [Hugging Face H
 Output | ![](assets/a_high_quality_photo_of_an_astronaut_riding_a_horse_in_space/randomSeed_11_computeUnit_CPU_AND_GPU_modelVersion_stabilityai_stable-diffusion-2-base.png) | ![](assets/a_high_quality_photo_of_an_astronaut_riding_a_horse_in_space/randomSeed_13_computeUnit_CPU_AND_NE_modelVersion_CompVis_stable-diffusion-v1-4.png) | ![](assets/a_high_quality_photo_of_an_astronaut_riding_a_horse_in_space/randomSeed_93_computeUnit_CPU_AND_NE_modelVersion_runwayml_stable-diffusion-v1-5.png)
 M1 MacBook Pro 16GB Latency (s) | 24 | 35 | 35 |
 
-## <a name="image-generation-with-python"></a> Image Generation with Python
-
-<details>
-  <summary> Click to expand </summary>
-
-Run text-to-image generation using the example Python pipeline based on [diffusers](https://github.com/huggingface/diffusers):
-
-```shell
-python -m python_coreml_stable_diffusion.pipeline --prompt "a photo of an astronaut riding a horse on mars" -i <output-mlpackages-directory> -o </path/to/output/image> --compute-unit ALL --seed 93
-```
-Please refer to the help menu for all available arguments: `python -m python_coreml_stable_diffusion.pipeline -h`. Some notable arguments:
-
-- `-i`: Should point to the `-o` directory from Step 4 of [Converting Models to Core ML](#converting-models-to-coreml) section from above.
-- `--model-version`: If you overrode the default model version while converting models to Core ML, you will need to specify the same model version here.
-- `--compute-unit`: Note that the most performant compute unit for this particular implementation may differ across different hardware. `CPU_AND_GPU` or `CPU_AND_NE` may be faster than `ALL`. Please refer to the [Performance Benchmark](#performance-benchmark) section for further guidance.
-- `--scheduler`: If you would like to experiment with different schedulers, you may specify it here. For available options, please see the help menu. You may also specify a custom number of inference steps by `--num-inference-steps` which defaults to 50.
-
-</details>
-
 ## <a name="image-gen-swift"></a> Image Generation with Swift
 
 <details>
